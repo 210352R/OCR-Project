@@ -1,0 +1,2 @@
+../test images/jap-text-1.png
+../test images/jap-text-2.png
