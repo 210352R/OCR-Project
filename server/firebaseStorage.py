@@ -30,16 +30,15 @@ def add_data_to_firestore():
 
 
 # add image to fire base storage
-def add_image_to_storage():
+async def add_image_to_storage(filename, filePath):
 
     print("Call Method ---------------------------")
 
-    blob = bucket.blob("test03.jpg")
-
+    blob = bucket.blob(filename)
     print("Blob : ", blob)
 
     # Upload the image file
-    blob.upload_from_filename(r"D:\OCR\pyTesseract\test_images\image03.jpg")
+    blob.upload_from_filename(r"./" + filePath)
 
     # Get the public URL of the uploaded image
     blob.make_public()
@@ -47,15 +46,15 @@ def add_image_to_storage():
     print("URL : ", blob.public_url)
 
     print("Added Sucesss ---------------------------------------------- ")
-    return {"message": "Image added successfully"}
+    return blob.public_url
 
 
 # Create method for download image from storage
-def download_image_from_storage():
-    blob = bucket.blob("test03.jpg")
+async def download_image_from_storage(filename):
+    blob = bucket.blob(filename)
 
     # Download the image
-    blob.download_to_filename(r"D:\OCR\pyTesseract\test_images\downloaded_image.jpg")
+    blob.download_to_filename(r"./downloads/" + filename)
 
     print("Downloaded Sucesss ---------------------------------------------- ")
     return {"message": "Image downloaded successfully"}
@@ -85,4 +84,4 @@ def add_data_to_firestore_with_retry():
 
 # add_image_to_storage()
 
-download_image_from_storage()
+# download_image_from_storage()
