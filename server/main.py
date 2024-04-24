@@ -6,7 +6,7 @@ from model import Scan_image
 from model import check_image_quality
 from model import scan_image_with_processing
 from verify import getOcrText
-
+from exceptions import OCRError
 
 import pickle
 
@@ -26,46 +26,40 @@ async def add_data():
 
 @app.post("/upload")
 async def upload_file(file: UploadFile = File(...)):
-    # Process the file here
-    # print(file.filename)
+    try:
+        file_ext = file.filename.split(".").pop()
 
-    file_ext = file.filename.split(".").pop()
+        if file_ext not in ["jpg", "jpeg", "png"]:
+            return JSONResponse(status_code=400, content={"error": "Invalid file type"})
 
-    if file_ext not in ["jpg", "jpeg", "png"]:
-        return JSONResponse(status_code=400, content={"error": "Invalid file type"})
+        file_name = "scan_img_" + token_hex(10)
 
-    file_name = "scan_img_" + token_hex(10)
+        file_path = f"uploads/{file_name}.{file_ext}"
 
-    file_path = f"uploads/{file_name}.{file_ext}"
+        with open(file_path, "wb") as f:
+            content = await file.read()
+            f.write(content)
 
-    with open(file_path, "wb") as f:
-        content = await file.read()
-        f.write(content)
+        load_name = file_name + "." + file_ext
 
-    load_name = file_name + "." + file_ext
+        checkImage = check_image_quality(load_name)
 
-    # URL = await fs.add_image_to_storage(load_name, file_path)
+        if checkImage == False:
+            raise HTTPException(status_code=400, detail="Image Quality is too Low ")
 
-    # result = await fs.download_image_from_storage(load_name)
+        ocr_result = await getOcrText(load_name)
 
-    checkImage = check_image_quality(load_name)
-
-    if checkImage == False:
-        raise HTTPException(status_code=400, detail="Image Quaality is too Low ")
-        # return JSONResponse(
-        #     status_code=400, content={"error": "Image Quaality is too Low "}
-        # )
-
-    # text = await Scan_image(load_name)
-    ocr_result = await getOcrText(load_name)
-
-    return {
-        "Sucess": True,
-        "filename": f"{file.filename} is uploaded successfully",
-        # "URL": URL,
-        "text": ocr_result[0],
-        "date": ocr_result[1],
-    }
+        return {
+            "Sucess": True,
+            "filename": f"{file.filename} is uploaded successfully",
+            "text": ocr_result[0],
+            "date": ocr_result[1],
+        }
+    except OCRError as eocr:
+        return JSONResponse(status_code=500, content={"error": eocr.detail})
+    except Exception as e:
+        # Handle the exception here
+        return JSONResponse(status_code=500, content={"error": str(e)})
 
 
 # # Load the serialized FastText model from the pickle file

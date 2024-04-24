@@ -1,4 +1,5 @@
 from veryfi import Client
+from exceptions import OCRError
 
 
 # get your keys here: https://hub.veryfi.com/api/
@@ -20,6 +21,6 @@ async def getOcrText(image_path):
         response = veryfi_client.process_document(file_path, categories=categories)
         print(response)
         return response["ocr_text"], response["date"]
+
     except Exception as e:
-        print(f"Error processing document: {e}")
-        return None, None
+        raise OCRError(str(e))
