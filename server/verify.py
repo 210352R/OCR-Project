@@ -24,3 +24,7 @@ async def getOcrText(image_path):
 
     except Exception as e:
         raise OCRError(str(e))
+
+
+def getItemsFromText():
+    
