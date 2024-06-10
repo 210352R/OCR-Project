@@ -5,7 +5,7 @@ This project is an Optical Character Recognition (OCR) system built using Python
 This is belongs To car sapre part life time prediction Project. In this Process Get Uploded spare parts bills from firebase storage and scan and read that bill snd extract wanted text from it.
 
 #### Example Extracted Text
-
+![sskk2](https://github.com/210352R/OCR---Project/assets/127854691/2764ab10-7023-487d-9527-9e3b99341ee5)
 
 ## Special Task
 But in some time noisy words are Extracted and those are made problems in prediction process. To Overcome this issue I trained NLP model for detect most  similar context familiar word for noisy words.
