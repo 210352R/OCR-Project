@@ -7,6 +7,29 @@ This is belongs To car sapre part life time prediction Project. In this Process 
 ## Special Task
 But in some time noisy words are Extracted and those are made problems in prediction process. To Overcome this issue I trained NLP model for detect most  similar context familiar word for noisy words.
 
+## Report: Noise Correction Using Word Embeddings
+
+### Introduction
+This notebook demonstrates a method for correcting noisy car part descriptions using word embeddings and cosine similarity.
+
+### Data Preprocessing
+The provided car part descriptions are preprocessed by tokenization, lowercase conversion, and filtering out stopwords and punctuation.
+
+### Word Embeddings
+To Overcome Out Of Vocabulary issue use FastText Algorithm.
+FastText embeddings are utilized with custom parameters (min_count=1, vector_size=100) to generate word vectors for the car part descriptions.
+
+### Noise Correction Algorithm
+The `correct_car_word` function corrects noisy words by comparing their word vectors with the vectors of known car part descriptions using cosine similarity.
+
+### Example
+An example is shown where the noisy word 'bonnet hinges' is corrected using the algorithm, demonstrating its effectiveness.
+
+```python
+Noisy Word: bonninet hies
+Corrected Word: bonnet hinges
+
+
 ## Table of Contents
 
 - [Features](#features)
