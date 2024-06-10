@@ -1,6 +1,6 @@
 # OCR Project
 
-This project is an Optical Character Recognition (OCR) system built using Python. It leverages the `pytesseract` library for text extraction, `OpenCV` for image processing, `re` for regular expressions, and `NLTK` for natural language processing.
+This project is an Optical Character Recognition (OCR) system built using Python. It leverages the `pytesseract` library for text extraction, `OpenCV` for image processing, `re` for regular expressions, and `NLTK` , `GENISM` for natural language processing.
 
 ## Table of Contents
 
