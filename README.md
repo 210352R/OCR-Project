@@ -28,6 +28,7 @@ An example is shown where the noisy word 'bonnet hinges' is corrected using the 
 ```python
 Noisy Word: bonninet hies
 Corrected Word: bonnet hinges
+```
 
 
 ## Table of Contents
@@ -36,10 +37,7 @@ Corrected Word: bonnet hinges
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Project Structure](#project-structure)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgements](#acknowledgements)
+
 
 ## Features
 
