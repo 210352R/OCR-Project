@@ -29,6 +29,8 @@ An example is shown where the noisy word 'bonnet hinges' is corrected using the 
 Noisy Word: bonninet hies
 Corrected Word: bonnet hinges
 ```
+Similarity Checking 
+![similarity checking](https://github.com/210352R/OCR---Project/assets/127854691/09586562-d0d5-4227-9662-d0025f3a28ba)
 
 
 ## Table of Contents
