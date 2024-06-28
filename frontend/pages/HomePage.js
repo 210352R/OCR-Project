@@ -1,8 +1,10 @@
 // components/HomePage.js
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
-const HomePage = ({ navigation }) => {
+const HomePage = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <Text style={styles.welcomeText}>Welcome to BillsApp</Text>
@@ -11,7 +13,7 @@ const HomePage = ({ navigation }) => {
       </Text>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate("Capture")}
+        onPress={() => navigation.navigate("Camera")}
       >
         <Text style={styles.buttonText}>Get Started</Text>
       </TouchableOpacity>

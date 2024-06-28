@@ -12,9 +12,8 @@ import {
 import * as ImagePicker from "expo-image-picker";
 import Icon from "react-native-vector-icons/Ionicons";
 
-export default function ImagePickerScreen() {
+export default function ImagePickerScreen({ image, setImage }) {
   const [modalVisible, setModalVisible] = useState(false);
-  const [image, setImage] = useState(null);
 
   useEffect(() => {
     (async () => {
