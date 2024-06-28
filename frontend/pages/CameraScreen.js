@@ -1,16 +1,22 @@
 import { StyleSheet, Text, View, ImageBackground } from "react-native";
 import React, { useState } from "react";
 import ImagePickerScreen from "../components/ImagePicker";
+import LottieView from "lottie-react-native";
 
 // Import an image for the background
-const backgroundImage = {
-  uri: "https://images.pexels.com/photos/758744/pexels-photo-758744.jpeg?auto=compress&cs=tinysrgb&w=600",
-};
+const backgroundImage = require("../assets/pexels-albinberlin-919073.jpg");
 
 export default function CameraScreen() {
   const [image, setImage] = useState(null);
   return (
     <ImageBackground source={backgroundImage} style={styles.background}>
+      <LottieView
+        source={require("../assets/camera.json")}
+        style={styles.thumbView}
+        autoPlay
+        loop={true}
+        speed={0.6}
+      />
       <View style={styles.overlay}>
         <Text style={styles.title}>Capture Your Bill</Text>
         <ImagePickerScreen image={image} setImage={setImage} />
@@ -27,7 +33,7 @@ const styles = StyleSheet.create({
   },
   overlay: {
     flex: 1,
-    backgroundColor: "rgba(0, 0, 0, 0.5)", // Add a semi-transparent overlay
+    //backgroundColor: "rgba(0, 0, 0, 0.5)", // Add a semi-transparent overlay
     justifyContent: "center",
     alignItems: "center",
   },
@@ -41,5 +47,12 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "bold",
     marginBottom: 20,
+  },
+  thumbView: {
+    height: 150,
+    width: 150,
+    alignSelf: "center",
+    marginTop: 40,
+    justifyContent: "center",
   },
 });
