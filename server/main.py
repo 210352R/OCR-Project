@@ -47,7 +47,7 @@ async def upload_file(file: UploadFile = File(...)):
         if checkImage == False:
             raise HTTPException(status_code=400, detail="Image Quality is too Low ")
 
-        ocr_result = await getOcrText(load_name)
+        ocr_result = await scan_image_with_processing(load_name)
 
         return {
             "Sucess": True,
