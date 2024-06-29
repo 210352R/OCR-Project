@@ -21,6 +21,19 @@ export default function CameraScreen() {
         <Text style={styles.title}>Capture Your Bill</Text>
         <ImagePickerScreen image={image} setImage={setImage} />
       </View>
+      {image && (
+        <TouchableOpacity
+          style={styles.submitButton}
+          onPress={submitImage}
+          disabled={loading}
+        >
+          {loading ? (
+            <ActivityIndicator color="#fff" />
+          ) : (
+            <Text style={styles.textStyle}>Submit</Text>
+          )}
+        </TouchableOpacity>
+      )}
     </ImageBackground>
   );
 }
