@@ -29,11 +29,16 @@ export default function CameraScreen() {
         data: fileBuffer,
       });
 
-      const response = await axios.post("YOUR_SERVER_URL/upload", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      const response = await axios.post(
+        "http://localhost:8000/upload",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      console.log(response);
       console.log(response.data);
       alert("Image uploaded successfully!");
     } catch (error) {

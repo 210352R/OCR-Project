@@ -52,7 +52,7 @@ async def upload_file(file: UploadFile = File(...)):
         return {
             "Sucess": True,
             "filename": f"{file.filename} is uploaded successfully",
-            "text": ocr_result[0],
+            "text": ocr_result,
             "date": ocr_result[1],
         }
     except OCRError as eocr:

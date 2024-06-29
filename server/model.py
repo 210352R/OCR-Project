@@ -23,7 +23,7 @@ def check_image_quality(image_path):
     # print height, width
     print("Image resolution: {} x {}".format(height, width))
 
-    min_resolution = (1000, 1000)  # Set a minimum resolution threshold
+    min_resolution = (300, 300)  # Set a minimum resolution threshold
     if height < min_resolution[0] or width < min_resolution[1]:
         print("Image resolution is too low for OCR")
         return False
