@@ -1,4 +1,10 @@
-import { StyleSheet, Text, View, ImageBackground } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+  TouchableOpacity,
+} from "react-native";
 import React, { useState } from "react";
 import ImagePickerScreen from "../components/ImagePicker";
 import LottieView from "lottie-react-native";
