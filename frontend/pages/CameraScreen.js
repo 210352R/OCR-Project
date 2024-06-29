@@ -8,6 +8,42 @@ const backgroundImage = require("../assets/pexels-albinberlin-919073.jpg");
 
 export default function CameraScreen() {
   const [image, setImage] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  // Add image to post method   ------------------------
+  const submitImage = async () => {
+    if (!image) return;
+    setLoading(true);
+
+    try {
+      const file = await FileSystem.readAsStringAsync(image, {
+        encoding: FileSystem.EncodingType.Base64,
+      });
+      const fileBuffer = Buffer.from(file, "base64");
+
+      const formData = new FormData();
+      formData.append("image", {
+        uri: image,
+        name: "photo.jpg",
+        type: "image/jpeg",
+        data: fileBuffer,
+      });
+
+      const response = await axios.post("YOUR_SERVER_URL/upload", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      console.log(response.data);
+      alert("Image uploaded successfully!");
+    } catch (error) {
+      console.error(error);
+      alert("Image upload failed!");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <ImageBackground source={backgroundImage} style={styles.background}>
       <LottieView
