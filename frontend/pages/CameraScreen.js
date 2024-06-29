@@ -49,7 +49,7 @@ export default function CameraScreen() {
     //     },
     //   }
     // );
-    const response = await axios.get("http://127.0.0.1:8000/");
+    const response = await axios.get("http://192.168.1.15:8000/");
     console.log("response ---------------------- ");
     console.log(response);
     console.log(response.data);

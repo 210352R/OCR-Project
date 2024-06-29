@@ -8,12 +8,30 @@ import {
   ImageBackground,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import axios from "axios";
 
 // Import an image for the background
 const backgroundImage = require("../assets/redcar.jpg");
 
+const check = async () => {
+  try {
+    console.log("check ---------------------- ");
+    const response = await fetch("http://192.168.1.15:8000/");
+    console.log("check 2 ---------------------- ");
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const data = await response.json();
+    console.log("response ---------------------- ");
+    console.log(data);
+  } catch (error) {
+    console.error("Fetch error:", error);
+  }
+};
+
 const HomePage = () => {
   const navigation = useNavigation();
+
   return (
     <ImageBackground source={backgroundImage} style={styles.background}>
       <View style={styles.container}>
@@ -21,10 +39,7 @@ const HomePage = () => {
         <Text style={styles.subText}>
           Your Predict sparepart lifetime from bill
         </Text>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.navigate("Camera")}
-        >
+        <TouchableOpacity style={styles.button} onPress={check}>
           <Text style={styles.buttonText}>Get Started</Text>
         </TouchableOpacity>
       </View>

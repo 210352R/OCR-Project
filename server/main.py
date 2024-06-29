@@ -11,11 +11,13 @@ from exceptions import OCRError
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
-
+# uvicorn main:app --host 0.0.0.0 --port 8000
 origins = [
     "http://localhost",
-    "http://localhost:19006",  # Add your Expo development URL here
-    "http://http://127.0.0.1/:8081",  # Add your local IP address
+    "http://localhost:19006",
+    "http://192.168.1.15:19006",  # Add your Expo development URL here
+    "http://192.168.1.15/:8081",
+    # Add your local IP address
     # Add any other origins as needed
 ]
 
