@@ -22,34 +22,34 @@ export default function CameraScreen() {
   // Add image to post method   ------------------------
   const submitImage = async () => {
     console.log("submitImage ----------------------  ");
-    // if (!image) return;
-    // setLoading(true);
+    if (!image) return;
+    setLoading(true);
 
-    // const file = await FileSystem.readAsStringAsync(image, {
-    //   encoding: FileSystem.EncodingType.Base64,
-    // });
+    const file = await FileSystem.readAsStringAsync(image, {
+      encoding: FileSystem.EncodingType.Base64,
+    });
 
-    // console.log("fileBuffer ------- ", file);
-    // console.log("File created success --------------------- ");
+    console.log("fileBuffer ------- ", file);
+    console.log("File created success --------------------- ");
 
-    // const formData = new FormData();
-    // formData.append("image", {
-    //   uri: image,
-    //   name: "photo.jpg",
-    //   type: "image/jpeg",
-    //   data: file,
-    // });
+    const formData = new FormData();
+    formData.append("image", {
+      uri: image,
+      name: "photo.jpg",
+      type: "image/jpeg",
+      data: file,
+    });
 
-    // const response = await axios.post(
-    //   "http://127.0.0.1:8000/upload",
-    //   formData,
-    //   {
-    //     headers: {
-    //       "Content-Type": "multipart/form-data",
-    //     },
-    //   }
-    // );
-    const response = await axios.get("http://192.168.1.15:8000/");
+    const response = await axios.post(
+      "http://192.168.1.15:8000/upload",
+      formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
+
     console.log("response ---------------------- ");
     console.log(response);
     console.log(response.data);
