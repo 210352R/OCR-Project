@@ -8,9 +8,24 @@ from model import scan_image_with_processing
 from verify import getOcrText
 from exceptions import OCRError
 
-import pickle
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+origins = [
+    "http://localhost",
+    "http://localhost:19006",  # Add your Expo development URL here
+    "http://http://127.0.0.1/:8081",  # Add your local IP address
+    # Add any other origins as needed
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.get("/")
