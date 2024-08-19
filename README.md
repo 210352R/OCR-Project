@@ -64,13 +64,14 @@ Similarity Checking
 - Fast-API
 - React-Native
 
-## Mobile Application
-![Screenshot 2024-08-19 214216](https://github.com/user-attachments/assets/0f276ce8-8514-4fe9-a521-585de54e0c2a)
-
 
 ## Installation
 
 ### Install Python and Tesseract-OCR
 
 Make sure you have Python 3.7+ installed on your machine. You also need to install Tesseract-OCR
+
+## Mobile Application
+make mobile application using react-native as front-end for this application
+![Screenshot 2024-08-19 214216](https://github.com/user-attachments/assets/0f276ce8-8514-4fe9-a521-585de54e0c2a)
 
