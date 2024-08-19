@@ -62,6 +62,11 @@ Similarity Checking
 - GENISM
 - Sklearn
 - Fast-API
+- React-Native
+
+## Mobile Application
+![Screenshot 2024-08-19 214216](https://github.com/user-attachments/assets/0f276ce8-8514-4fe9-a521-585de54e0c2a)
+
 
 ## Installation
 
