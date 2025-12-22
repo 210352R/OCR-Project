@@ -1,4 +1,5 @@
 # OCR Project
+<img width="1536" height="1024" alt="OCR_project_image" src="https://github.com/user-attachments/assets/360c7ce1-363a-42a9-99e8-b4203ca7010f" />
 
 This project is an Optical Character Recognition (OCR) system built using Python. It leverages the `pytesseract` library for text extraction, `OpenCV` for image processing, `re` for regular expressions, and `NLTK` , `GENISM` for natural language processing. And build backend server using `fast api`
 
