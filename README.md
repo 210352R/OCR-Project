@@ -13,6 +13,9 @@ But in some time noisy words are Extracted and those are made problems in predic
 
 ## Report: Noise Correction Using Word Embeddings
 
+<img width="884" height="2680" alt="ocr_workflow_new" src="https://github.com/user-attachments/assets/191056f8-c15f-41c4-aac8-d5204d335517" />
+
+
 ### Introduction
 This notebook demonstrates a method for correcting noisy car part descriptions using word embeddings and cosine similarity.
 
