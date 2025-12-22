@@ -1,4 +1,11 @@
 # OCR Project
+<p align="center">
+  <a href="https://medium.com/@eshanmaduranga0329/from-noisy-ocr-to-meaningful-insights-correcting-automotive-spare-part-text-using-fasttext-and-41cec4a5e923" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968885.png" width="28"/>
+    <strong> Read the Full Technical Article on Medium</strong>
+  </a>
+</p>
+
 <img width="1536" height="1024" alt="OCR_project_image" src="https://github.com/user-attachments/assets/360c7ce1-363a-42a9-99e8-b4203ca7010f" />
 
 This project is an Optical Character Recognition (OCR) system built using Python. It leverages the `pytesseract` library for text extraction, `OpenCV` for image processing, `re` for regular expressions, and `NLTK` , `GENISM` for natural language processing. And build backend server using `fast api`
